@@ -1,0 +1,24 @@
+<%= render "shared/header",obj: @room %>
+
+<div class ="page">
+<h1>検索結果</h1>
+
+
+      <% @rooms.each do |room| %>
+        <div class = "room-image">
+          <%= link_to room_path(room.id) do %>
+            <% if room.image != nil %>
+            <%= image_tag room.image, size: '300x200'%>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class = "room_profile">
+          <p class ="room-profile-name"><%= room.room_name %></p>
+          <p class ="room-profile-adress"><%= room.adress %></p>
+          <p class ="room-profile-price"><%= room.price %></p>
+        </div>
+      <% end %>
+
+</div>
+<%= render "shared/footer"%>

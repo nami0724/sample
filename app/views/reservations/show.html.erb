@@ -1,0 +1,40 @@
+<p>show.予約確認内容</p>
+<div class= "page">
+    <table class="table">
+
+        <tr>
+          <th>開始日</th>
+          <td><%= @reservation.start_date %></td>
+        </tr>
+
+        <tr>
+          <th>終了日</th>
+          <td><%= @reservation.end_date %></td>
+        </tr>
+
+        <tr>
+          <th>使用日数</th>
+          <td><%= @reservation.period %><td>
+        </tr>
+
+        <tr>
+          <th>人数</th>
+          <td><%= @reservation.person %></td>
+        </tr>
+
+        <tr>
+          <th>合計金額</th>
+          <td><%= @reservation.total_price %></td>
+        </tr>
+
+    </table>
+
+  <div class="button">
+    <h2><%= link_to '予約を確定',:reservations %></h2>
+  </div>
+
+
+  <div class="button">
+    <h2><%= link_to "ルーム詳細に戻る", :new_reservation %></h2>
+  </div>
+</div>

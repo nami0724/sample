@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+<div class= "page">
+<p>index.予約確認内容</p>
+
+<table class="table">
+<% @reservations.each do |reservation| %>
+      <table>
+      <tr>
+        <th>予約した部屋</th>
+        <td><%= reservation.start_date %></td>
+        </tr>
+        <tr>
+        <th>開始日</th>
+        <td><%= reservation.start_date %></td>
+        </tr>
+        <tr>
+        <th>終了日</th>
+        <td><%= reservation.end_date %></td>
+        </tr>
+        <tr>
+        <th>価格</th>
+        <td><%= reservation.total_price %></td>
+      </tr>
+      </table>
+      <% end %>
+</div>
+<%= render "shared/footer"%>
+
