@@ -4,6 +4,7 @@
   <%= form_for @reservation, local: true do |f| %>
     <table>
     <h5 class="price-icon"><%= @reservation.total_price %>/ 日</h5>
+    <td><%= room.room_name %></td>
       <tr>
         <th><%= f.label :start_date,"開始日" %></th>
         <td><%= f.date_field :start_date %></td>

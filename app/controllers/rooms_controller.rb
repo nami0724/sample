@@ -18,8 +18,10 @@ class RoomsController < ApplicationController
 
     def create
       @room = Room.new(rooms_params)
+      binding.pry
         if @room.save
-          redirect_to controller: :reservation, action: :new
+          redirect_to :rooms
+          # redirect_to controller: :reservation, action: :new
         else
           render"new"
         end
@@ -45,6 +47,4 @@ class RoomsController < ApplicationController
       params.require(:room).permit(:room_name, :room_introduction, :price, :adress, :image)
 
     end
-
-
   end

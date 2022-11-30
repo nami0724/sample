@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :areas
   
   get "search" => "searches#search"
   # devise_for :Users, :controllers => {
@@ -29,9 +28,6 @@ Rails.application.routes.draw do
       get :account
       get :profile
     end
-  end
-
-  root 'homes#index'
-  get 'mypage', to: 'homes#mypage'
+  
 end
 
