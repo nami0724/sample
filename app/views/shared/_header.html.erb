@@ -1,4 +1,50 @@
 <div class ="header">
-<%= link_to "POTESHARE", rooms_path %>
+  <div class ="title">
+    <%= link_to "POTESHARE", top_rooms_path %>
+  </div>
 
-</div>
+<%= search_form_for @q do |f| %>
+    <%= f.search_field :adress_cont, placeholder: "エリア" %>
+    <%= f.submit '検索' %>
+  <% end %>
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :room_introduction_cont, placeholder: "キーワード" %>
+    <%= f.submit '検索' %>
+  <% end %>
+  <div class ="button-group">
+    <div class ="button_l">
+      <%= link_to 'ログイン', new_User_session_path %>
+    </div>
+    <div class ="button_l">
+      <%= link_to '登録', new_User_registration_path %>
+    </div>
+  </div>
+
+  <div class="hamburger-menu">
+        <input type="checkbox" id="menu-btn-check">
+        <label for="menu-btn-check" class="menu-btn"><span></span></label>
+
+        
+        <div class="menu-content">
+            <ul>
+                <li>
+                <%= link_to 'ルーム登録', new_room_path %>
+                </li>
+                <li>
+                <%= link_to '予約済ルーム一覧', reservations_url %>
+                </li>
+                <li>
+                <%= link_to '登録済ルーム一覧', post_rooms_path %>
+                </li>
+                <li>
+                <%= link_to '設定', edit_User_registration_path %>
+                </li>
+                <li>
+                <%= link_to 'ログアウト',sign_out_path %>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    </div>

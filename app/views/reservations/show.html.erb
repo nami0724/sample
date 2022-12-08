@@ -1,31 +1,32 @@
 <p>show.予約確認内容</p>
+<%= render"shared/error",obj:@reservation %>
 <div class= "page">
     <table class="table">
 
         <tr>
           <th>開始日</th>
-          <td><%= @reservation.start_date %></td>
+          <td><%= @reservation.start_date.to_date.strftime('%Y/%m/%d') %></td>
         </tr>
 
         <tr>
           <th>終了日</th>
-          <td><%= @reservation.end_date %></td>
+          <td><%= @reservation.end_date.to_date.strftime('%Y/%m/%d') %></td>
         </tr>
 
         <tr>
           <th>使用日数</th>
-          <td><%= @reservation.period %><td>
+          <td><%= (@reservation.end_date -  @reservation.start_date).to_i %>日<td>
         </tr>
 
         <tr>
           <th>人数</th>
-          <td><%= @reservation.person %></td>
+          <td><%= @reservation.person %>人</td>
         </tr>
 
         <tr>
           <th>合計金額</th>
-          <td><%= @reservation.total_price %></td>
-        </tr>
+          <td><%= ((@reservation.end_date -  @reservation.start_date).to_i) * (@room.price) * ((@reservation.person).to_i) %></td>
+          </tr>
 
     </table>
 

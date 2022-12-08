@@ -55,7 +55,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
 gem 'hirb'
 gem 'hirb-unicode'
 gem 'font-awesome-rails'
+gem 'ransack'
+gem 'mini_magick'

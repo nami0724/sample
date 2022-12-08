@@ -1,7 +1,7 @@
 <%= render "shared/header",obj: @room %>
-
-<div class= "page">
-  <h1 class="top">New.ルーム登録画面</h1>
+<%= render"shared/error",obj: @room %>
+  <div class= "page">
+    <h1 class="top">ルーム登録画面</h1>
 
   <%= form_for(@room) do |f| %>
     <table>

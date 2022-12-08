@@ -178,3 +178,27 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+
+ja:
+  activerecord:
+    models:
+      room: ルーム
+    attributes:
+      room:
+        room_name: ルーム名
+        room_introduction: ルーム紹介
+        price: 料金
+        adress: 住所
+        
+
+ja:
+  activerecord:
+    models:
+      reservation: 予約
+    attributes:
+      reservation:
+        start_date: 開始日
+        end_date: 終了日
+        person: 人数
+        adress: 住所

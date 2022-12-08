@@ -1,28 +1,32 @@
 <%= render "shared/header" %>
-<div class= "page">
-<p>index.予約確認内容</p>
 
-<table class="table">
-<% @reservations.each do |reservation| %>
-      <table>
-      <tr>
-        <th>予約した部屋</th>
-        <td><%= reservation.start_date %></td>
-        </tr>
-        <tr>
-        <th>開始日</th>
-        <td><%= reservation.start_date %></td>
-        </tr>
-        <tr>
-        <th>終了日</th>
-        <td><%= reservation.end_date %></td>
-        </tr>
-        <tr>
-        <th>価格</th>
-        <td><%= reservation.total_price %></td>
-      </tr>
-      </table>
-      <% end %>
+<div class= "page">
+<h1>ご予約一覧</h1>
+
+
+  <table class="table">
+  <% @rooms.each do |room| %>
+    <tr>
+      <th>予約した部屋</th>
+      <td><%= room.room_name %></td>
+    </tr>
+    
+      <% @reservations.each do |reservation| %>
+    <tr>
+      <th>開始日</th>
+      <td><%= reservation.start_date.to_date.strftime('%Y/%m/%d') %></td>
+    </tr>
+    <tr>
+      <th>終了日</th>
+      <td><%= reservation.end_date.to_date.strftime('%Y/%m/%d') %></td>
+    </tr>
+    <tr>
+      <th>価格</th>
+      <td><%= ((reservation.end_date -  reservation.start_date).to_i) * (room.price) * ((reservation.person).to_i) %>円</td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
 </div>
 <%= render "shared/footer"%>
 

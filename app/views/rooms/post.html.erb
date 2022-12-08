@@ -1,1 +1,34 @@
-<p>登録済みルーム一覧</p>
+<%= render "shared/header" %>
+a
+a
+a
+a
+a
+a
+a
+<div class ="page">
+  <h1>登録済みルーム一覧</h1>
+
+    <div class = itiran>
+      
+        <% @rooms.each do |room| %>
+        
+        <div class = "room-image">
+          <%= link_to room_path(room.id) do %>
+            <% if room.image != nil %>
+            <%= image_tag room.image, size: '300x200'%>
+            <% end %>
+            <%= link_to"予約する", new_reservation_path %>
+          <% end %>
+        </div>
+
+        <div class = "room_profile">
+          <p class ="room-profile-name">ルーム名：<%= room.room_name %></p>
+          <p class ="room-profile-adress">住所：<%= room.adress %></p>
+          <p class ="room-profile-price">料金：￥<%= room.price %></p>
+        </div>
+      <% end %>
+    </div>
+
+</div>
+<%= render "shared/footer"%>

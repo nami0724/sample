@@ -1,25 +1,34 @@
 class ReservationsController < ApplicationController
-
+  before_action :authenticate_user!
 
     def index
-        @reservations = Reservation.all.limit(1)
+        @reservations = Reservation.all.order(id: "DESC").limit(1)
+        @rooms = Room.all
+        @q = Room.ransack(params[:q])
+        @rooms = @q.result(distinct: true)
+        
+        
       end
     
       def show
         @reservation = Reservation.find(params[:id])
-        @room = Room.find(@reservation.room_id)
+        @room = Room.find(params[:id])
         
       end
     
       def new
         @reservation = Reservation.new
+        @q = Room.ransack(params[:q])
+        @rooms = @q.result(distinct: true)
         
       end
     
       def create
-        @reservation = Reservation.create(params.require(:reservation).permit(:id, :start_date, :end_date, :person, :total_price, :period, :user_id,))
+        @reservation = Reservation.new(reservation_params)
+        @q = Room.ransack(params[:q])
+        @rooms = @q.result(distinct: true)
           if @reservation.save
-            redirect_to action: "show"
+            redirect_to @reservation
            
           else
             render"new"
@@ -30,20 +39,16 @@ class ReservationsController < ApplicationController
       end
     
       def update
-        @reservation = Reservation.find(params[:id])
-        if @reservation.update(params.require(:reservation).permit(:id, :start_date, :end_date, :person, :total_price, :period, :user_id))
-          redirect_to :reservation
-        else
-          render"new"
-        end
       end
     
       def destroy
       end
+
     
       private
     
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date, :person, :total_price, :period, :user_id,)
+      params.require(:reservation).permit(:start_date, :end_date, :person, :total_price, :period, :user_id, :room_id)
     end
-    end
+
+  end

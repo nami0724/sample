@@ -7,7 +7,6 @@ class CreateRooms < ActiveRecord::Migration[6.0]
       t.string :adress
       t.string :image_id
       t.string :user_id
-      t.string :reservation_id
 
 
       t.timestamps

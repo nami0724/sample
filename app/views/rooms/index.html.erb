@@ -1,7 +1,6 @@
-<%= render "shared/header",obj: @room %>
-
+<%= render "shared/header" %>
 <div class ="page">
-<h1>検索結果</h1>
+<h1>検索結果:<%= @rooms.length %>件</h1>
 
 
       <% @rooms.each do |room| %>
@@ -10,15 +9,17 @@
             <% if room.image != nil %>
             <%= image_tag room.image, size: '300x200'%>
             <% end %>
+            <%= link_to"予約する", new_reservation_path %>
           <% end %>
         </div>
 
         <div class = "room_profile">
-          <p class ="room-profile-name"><%= room.room_name %></p>
-          <p class ="room-profile-adress"><%= room.adress %></p>
-          <p class ="room-profile-price"><%= room.price %></p>
+          <p class ="room-profile-name">【ルーム名】<%= room.room_name %></p>
+          <p class ="room-profile-adress">【住所】<%= room.adress %></p>
+          <p class ="room-profile-price">【料金】¥<%= room.price %></p>
         </div>
       <% end %>
 
 </div>
 <%= render "shared/footer"%>
+</div>

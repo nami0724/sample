@@ -1,10 +1,17 @@
+<%= render "shared/header" %>
+<%= render"shared/error",obj:@reservation %>
+<div class= "page">
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
 
-<i class = "fa-solid fa-yen-sign fa-x5"></i>
 <div class ="page">
-  <%= form_for @reservation, local: true do |f| %>
+  <%= form_for (@reservation), local: true do |f| %>
     <table>
-    <h5 class="price-icon"><%= @reservation.total_price %>/ 日</h5>
-    <td><%= room.room_name %></td>
+    
       <tr>
         <th><%= f.label :start_date,"開始日" %></th>
         <td><%= f.date_field :start_date %></td>
@@ -27,7 +34,7 @@
       </ul>
   <% end %>
 </div>
-
+</div>
 
 
 <%= render "shared/footer"%>

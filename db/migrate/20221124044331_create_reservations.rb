@@ -7,6 +7,7 @@ class CreateReservations < ActiveRecord::Migration[6.0]
       t.string :period
       t.string :total_price
       t.string :user_id
+      t.string :room_id
       
       t.timestamps
     end

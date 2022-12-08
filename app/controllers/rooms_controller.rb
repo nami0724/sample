@@ -1,11 +1,15 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :post]
 
     def  top
-      @rooms = Room.all
+      @q = Room.ransack(params[:q])
+      @rooms = @q.result(distinct: true)
     end
 
     def index
       @rooms = Room.all
+      @q = Room.ransack(params[:q])
+      @rooms = @q.result(distinct: true)
     end
 
     def show
@@ -14,17 +18,20 @@ class RoomsController < ApplicationController
 
     def new
       @room = Room.new
+      @q = Room.ransack(params[:q])
+      @rooms = @q.result(distinct: true)
     end
 
     def create
+      @q = Room.ransack(params[:q])
+          @rooms = @q.result(distinct: true)
       @room = Room.new(rooms_params)
-      binding.pry
         if @room.save
-          redirect_to :rooms
-          # redirect_to controller: :reservation, action: :new
+          redirect_to new_reservation_path
         else
           render"new"
         end
+        
     end
 
     def edit
@@ -34,6 +41,9 @@ class RoomsController < ApplicationController
 
     def post
       @room = Room.all
+      @q = Room.ransack(params[:q])
+      @rooms = @q.result(distinct: true)
+      
     end
 
     def update
@@ -42,9 +52,24 @@ class RoomsController < ApplicationController
     def destroy
     end
 
+    def profile
+      @q = Room.ransack(params[:q])
+      @rooms = @q.result(distinct: true)
+    end
+
+    def search
+      @results = @q.result
+    end
   private
+  def set_q
+    @q = Room.ransack(params[:q])
+  end
+
+
     def rooms_params
       params.require(:room).permit(:room_name, :room_introduction, :price, :adress, :image)
 
     end
+
+
   end
