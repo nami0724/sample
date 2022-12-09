@@ -1,6 +1,6 @@
 class Reservation < ApplicationRecord
     belongs_to :user, optional: true,foreign_key: 'user_id'
-    belongs_to :room, optional: true
+    belongs_to :room, optional: true,foreign_key: 'room_id'
     validates :person, presence: true, numericality: true
     validates :start_date, presence: true
     validates :end_date, presence: true
