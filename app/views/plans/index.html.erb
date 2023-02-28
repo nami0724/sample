@@ -1,0 +1,10 @@
+<%= render "shared/header" %>
+  <div class= "page">
+    <h1>旅行履歴</h1>
+    <% @plans.each do |plan| %>
+      <h2><%= plan.place %>旅行</h2>
+    <%end%>
+      <%= stylesheet_link_tag "common", :media => "all" %>
+  </div>
+<%= render "shared/myplan"%>
+<%= render "shared/footer"%>

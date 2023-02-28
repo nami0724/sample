@@ -1,18 +1,9 @@
 <%= render "shared/header" %>
-a
-a
-a
-a
-a
-a
-a
 <div class ="page">
   <h1>登録済みルーム一覧</h1>
 
     <div class = itiran>
-      
         <% @rooms.each do |room| %>
-        
         <div class = "room-image">
           <%= link_to room_path(room.id) do %>
             <% if room.image != nil %>
@@ -29,6 +20,5 @@ a
         </div>
       <% end %>
     </div>
-
 </div>
 <%= render "shared/footer"%>

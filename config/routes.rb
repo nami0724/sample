@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   resources :reservations do
   end
 
+  resources :plans do
+      get 'index'
+      post 'index'
+      get 'new'
+      get 'plans/show' => 'plans#show',as: :plans_show
+      post 'show'
+  end
 
   devise_scope :user do
     get "sign_in", :to => "users/sessions#new"
@@ -33,4 +40,3 @@ Rails.application.routes.draw do
   root 'rooms#top'
 
 end
-

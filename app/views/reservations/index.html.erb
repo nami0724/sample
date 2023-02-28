@@ -10,9 +10,9 @@
       <th>予約した部屋</th>
       <td><%= room.room_name %></td>
     </tr>
-    
       <% @reservations.each do |reservation| %>
     <tr>
+
       <th>開始日</th>
       <td><%= reservation.start_date.to_date.strftime('%Y/%m/%d') %></td>
     </tr>
@@ -29,4 +29,3 @@
   </table>
 </div>
 <%= render "shared/footer"%>
-

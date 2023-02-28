@@ -1,6 +1,6 @@
 <div class ="header">
   <div class ="title">
-    <%= link_to "POTESHARE", top_rooms_path %>
+    <%= link_to "H & T", top_rooms_path %>
   </div>
 
 <%= search_form_for @q do |f| %>
@@ -27,6 +27,9 @@
         
         <div class="menu-content">
             <ul>
+                <li>
+                <%= link_to '旅行履歴', plans_path %>
+                </li>
                 <li>
                 <%= link_to 'ルーム登録', new_room_path %>
                 </li>

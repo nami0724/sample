@@ -4,7 +4,6 @@
 <div class= "page">
 <h1>予約確認内容</h1>
     <table class="table">
-
         <tr>
           <th>開始日</th>
           <td><%= @reservation.start_date.to_date.strftime('%Y/%m/%d') %></td>
@@ -29,15 +28,14 @@
           <th>合計金額</th>
           <td><%= ((@reservation.end_date -  @reservation.start_date).to_i) * (@room.price) * ((@reservation.person).to_i) %></td>
           </tr>
-
     </table>
 
-  <div class="button">
-    <h2><%= link_to '予約を確定',:reservations %></h2>
-  </div>
+      <div class="button">
+        <h2><%= link_to '予約を確定',:reservations %></h2>
+      </div>
 
-
-  <div class="button">
-    <h2><%= link_to "ルーム詳細に戻る", :new_reservation %></h2>
-  </div>
+      <div class="button">
+        <h2><%= link_to "ルーム詳細に戻る", :new_reservation %></h2>
+      </div>
 </div>
+<%= render "shared/footer"%>

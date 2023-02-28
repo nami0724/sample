@@ -1,8 +1,8 @@
 
 .header {
     width: 100%;
-    padding: 15px;
-    background-color: black;
+    padding: 30px;
+    background-color: #89c7de;
     color: white;
     position:fixed;
     top: 0;
@@ -14,8 +14,7 @@
 }
 
 .header h1 {
-    font-family:'Courier New', Courier, monospace
-    
+    font-family:'Courier New', Courier, monospace;
 }
 .title {
         width: 190px;
@@ -23,7 +22,9 @@
         font-size:30px;
         font-weight: bold;
         padding: 0.2em 0.5em;
+        text-decoration: none;
 }
+
 .title a{
     color: white;
     text-decoration: none;
@@ -42,20 +43,14 @@
 
 .footer {
     width: 100%;
-    background-color: black;
-    color: white;
-    padding: 40px;
-    margin-top: 30px;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    font-family:'Courier New', Courier, monospace;
+    background-color: #89c7de;
+    color: #fff;
     text-align: center;
-    box-sizing: border-box;
-    position: fixed;
+    padding: 30px 0;
 }
 
 .page {
+    width: 100%;
     height: 100%;
     min-height: 100vh;
     position: relative;
@@ -71,18 +66,16 @@
     background-color: #fbc25b;
     padding: 10px 20px;
     color: black;
-  }
-  
+}
+
 table td {
     background-color: #f9ecd5;
     padding: 10px 20px;
     color: black;
-  }
-  
-  
+}
 
-  .page_top {
-    background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+.page_top {
+    // background-image: url("https://pikawaka.com/packs/media/images/chara-right-26a313f496bb7605d29ef9aa9f44b4b5.png");
     height: 800px;
     width: 100%;
     background-size: cover;
@@ -92,8 +85,15 @@ table td {
     margin-left: 0px;
     text-align: center;
     vertical-align: middle;
-  }
-  .search_top {
+}
+
+.recommendation {
+    font-size: large;
+    display: flex;
+    padding-bottom: 200px;
+}
+
+.search_top {
     padding: 0.5em 1em;
     margin: 00px 500px;
     font-weight: bold;
@@ -242,4 +242,27 @@ table td {
 .button_ a {
     color: white;
     text-decoration: none;
+}
+
+
+.myplan {
+    background-color: white;
+    font-weight: bold;
+    font-size: large;
+    position: fixed;
+  bottom: 10px; 
+  right: 10px;
+  padding: 6px 40px;
+}
+
+.plan_place {
+    color: #6091d3;
+}
+
+.plan_start {
+    color: #000;
+}
+
+.planall2 {
+    background-color: #fbc25b;
 }
